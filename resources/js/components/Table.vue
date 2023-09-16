@@ -2,7 +2,6 @@
 import TableRow from "./TableRow.vue";
 
 export default {
-    name: "Table",
     components: {TableRow},
     props: ['posts'],
     methods: {

@@ -1,6 +1,5 @@
 <script>
 export default {
-    name: "PropsExample",
     props: ['posts', 'random'],
     mounted() {
         this.random()

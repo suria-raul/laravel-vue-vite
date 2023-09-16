@@ -4,8 +4,11 @@
 
 <template>
     <h1>
-        This is the App.vue!
+        Laravel Vue Vite!
     </h1>
+    <div class="container">
+        <router-view />
+    </div>
 </template>
 
 <style scoped>

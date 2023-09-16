@@ -1,0 +1,62 @@
+<script>
+import axios from "axios"
+
+export default {
+    data() {
+        return {
+            posts: Array
+        }
+    },
+    mounted() {
+        this.getPosts()
+    },
+    methods: {
+        async getPosts() {
+            await axios.get('/api/posts')
+                .then((response) => {
+                    this.posts = response.data
+                    console.log(this.posts)
+                })
+        }
+    }
+}
+</script>
+
+<template>
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Posts</h1>
+                Create
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(post, key) in posts" :key="key">
+                    <td>{{ key += 1 }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.description }}</td>
+                    <td>
+                        Edit!
+                        <br/>
+                        Delete
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+
+</style>

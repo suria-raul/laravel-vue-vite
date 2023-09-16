@@ -1,7 +1,9 @@
 <script>
 import axios from "axios"
+import Table from "../../components/Table.vue"
 
 export default {
+    components: {Table},
     data() {
         return {
             posts: Array
@@ -15,7 +17,7 @@ export default {
             await axios.get('/api/posts')
                 .then((response) => {
                     this.posts = response.data
-                    console.log(this.posts)
+                    // console.log(this.posts)
                 })
         }
     }
@@ -31,28 +33,7 @@ export default {
             </div>
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="(post, key) in posts" :key="key">
-                    <td>{{ key += 1 }}</td>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.description }}</td>
-                    <td>
-                        Edit!
-                        <br/>
-                        Delete
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <Table :posts="posts" />
         </div>
     </div>
 </template>

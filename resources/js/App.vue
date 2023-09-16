@@ -1,7 +1,3 @@
-<script>
-
-</script>
-
 <template>
     <h1>
         Laravel Vue Vite!
@@ -10,7 +6,3 @@
         <router-view />
     </div>
 </template>
-
-<style scoped>
-
-</style>

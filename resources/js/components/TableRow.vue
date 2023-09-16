@@ -13,7 +13,7 @@ export default {
         <td>{{ post.title }}</td>
         <td>{{ post.description }}</td>
         <td>
-            Edit!
+            Edit
             <br/>
             Delete
         </td>

@@ -11,5 +11,9 @@ export const routes = [
         path: '/post/create',
         name: 'PostCreate',
         component: PostCreate,
+    },
+    {
+        path: '/post/edit/:post',
+        name: 'EditPost'
     }
 ]

@@ -1,6 +1,4 @@
 <script>
-import axios from "axios"
-
 export default {
     data() {
         return {
@@ -8,17 +6,8 @@ export default {
         }
     },
     methods: {
-        async savePost() {
-            await axios.post('/api/posts', this.post)
-                .then(() => {
-                    this.post = {}
-                    // redirect to /posts
-                    this.$router.push('/posts')
-                })
-                .catch((error) => {
-                    console.log(error)
-                    alert(error)
-                })
+        updatePost() {
+
         }
     }
 }
@@ -28,8 +17,8 @@ export default {
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h1>Create Post</h1>
-                <router-link to="/posts">
+                <h1>Edit Posts</h1>
+                <router-link to="/posts" class="btn btn-secondary">
                     Back
                 </router-link>
             </div>
@@ -45,7 +34,7 @@ export default {
                     <input type="text" name="description" id="description" v-model="post.description"
                            class="form-control"/>
                 </div>
-                <button type="button" class="btn btn-secondary mt-2" @click.prevent="savePost()">Save</button>
+                <button type="button" class="btn btn-secondary mt-2" @click.prevent="updatePost()">Save</button>
             </form>
         </div>
     </div>

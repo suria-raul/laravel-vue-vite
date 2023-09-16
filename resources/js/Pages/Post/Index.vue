@@ -29,7 +29,9 @@ export default {
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h1>Posts</h1>
-                Create
+                <router-link to="/post/create">
+                    Create
+                </router-link>
             </div>
         </div>
         <div class="card-body">

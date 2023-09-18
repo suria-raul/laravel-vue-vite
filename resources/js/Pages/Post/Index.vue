@@ -1,5 +1,4 @@
 <script>
-import axios from "axios"
 
 export default {
     mounted() {
@@ -9,16 +8,8 @@ export default {
         getPosts() {
             this.$store.dispatch('getPosts')
         },
-        async deletePost(id) {
-            await axios.delete(`/api/posts/${id}`)
-                .then((response) => {
-                    let deleteMessage = response.data
-                    this.$toast.success(deleteMessage);
-                    this.getPosts()
-                })
-                .catch((error) => {
-                    console.log(error.message)
-                })
+        deletePost(id) {
+            this.$store.dispatch('deletePost', id)
         }
     },
     computed: {

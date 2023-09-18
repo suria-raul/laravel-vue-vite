@@ -2,21 +2,12 @@
 import axios from "axios"
 
 export default {
-    data() {
-        return {
-            posts: Array
-        }
-    },
     mounted() {
         this.getPosts()
     },
     methods: {
-        async getPosts() {
-            await axios.get('/api/posts')
-                .then((response) => {
-                    this.posts = response.data.data
-                    // console.log(this.posts)
-                })
+        getPosts() {
+            this.$store.dispatch('getPosts')
         },
         async deletePost(id) {
             await axios.delete(`/api/posts/${id}`)
@@ -28,6 +19,11 @@ export default {
                 .catch((error) => {
                     console.log(error.message)
                 })
+        }
+    },
+    computed: {
+        posts() {
+            return this.$store.getters.getPosts
         }
     }
 }

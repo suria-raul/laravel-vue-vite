@@ -26,7 +26,7 @@ class PostController extends Controller
     {
         Post::create($postRequest->validated());
 
-        return response('Post Created!');
+        return response('Post Created!', 201);
     }
 
     /**
@@ -44,7 +44,7 @@ class PostController extends Controller
     {
         $post->update($updatePostRequest->validated());
 
-        return response('Post Updated!');
+        return response('Post Updated!', 202);
     }
 
     /**
@@ -54,6 +54,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return response('Post deleted!');
+        return response('Post deleted!', 202);
     }
 }

@@ -2,6 +2,7 @@ import {createApp} from "vue"
 import App from './App.vue'
 import {routes} from "./routes.js";
 import {createRouter, createWebHistory} from "vue-router"
+import {Toaster} from "@meforma/vue-toaster"
 
 const app = createApp(App)
 const router = createRouter({
@@ -10,4 +11,7 @@ const router = createRouter({
 })
 
 app.use(router)
+app.use(Toaster, {
+    position: 'top'
+})
 app.mount('#app')

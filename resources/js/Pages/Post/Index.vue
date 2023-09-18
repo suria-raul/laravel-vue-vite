@@ -20,8 +20,13 @@ export default {
         },
         async deletePost(id) {
             await axios.delete(`/api/posts/${id}`)
-                .then(() => {
+                .then((response) => {
+                    let deleteMessage = response.data
+                    this.$toast.success(deleteMessage);
                     this.getPosts()
+                })
+                .catch((error) => {
+                    console.log(error.message)
                 })
         }
     }

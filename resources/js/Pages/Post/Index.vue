@@ -1,16 +1,16 @@
 <script>
 
+import {mapActions} from "vuex";
+
 export default {
     mounted() {
         this.getPosts()
     },
     methods: {
-        getPosts() {
-            this.$store.dispatch('getPosts')
-        },
-        deletePost(id) {
-            this.$store.dispatch('deletePost', id)
-        }
+        ...mapActions([
+            'getPosts',
+            'deletePost'
+        ])
     },
     computed: {
         posts() {

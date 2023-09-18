@@ -14,7 +14,7 @@ export default {
         async getPosts() {
             await axios.get('/api/posts')
                 .then((response) => {
-                    this.posts = response.data
+                    this.posts = response.data.data
                     // console.log(this.posts)
                 })
         },

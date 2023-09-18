@@ -14,7 +14,7 @@ export default {
         async getPost() {
             await axios.get(`/api/posts/${this.$route.params.postId}`)
                 .then((response) => {
-                    this.post = response.data
+                    this.post = response.data.data
                 })
         },
         async updatePost() {
@@ -47,7 +47,7 @@ export default {
                     <input type="text" name="title" id="title" class="form-control" v-model="post.title"/>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description;</label>
+                    <label for="description">Description</label>
                     <input type="text" name="description" id="description" v-model="post.description"
                            class="form-control"/>
                 </div>

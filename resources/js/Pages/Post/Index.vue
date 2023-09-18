@@ -17,6 +17,12 @@ export default {
                     this.posts = response.data
                     // console.log(this.posts)
                 })
+        },
+        async deletePost(id) {
+            await axios.delete(`/api/posts/${id}`)
+                .then(() => {
+                    this.getPosts()
+                })
         }
     }
 }
@@ -52,7 +58,9 @@ export default {
                             Edit
                         </router-link>
                         <br/>
-                        Delete
+                        <button type="button" @click="deletePost(post.id)">
+                            Delete
+                        </button>
                     </td>
                 </tr>
                 </tbody>

@@ -35,7 +35,7 @@ export default {
             </div>
         </div>
         <div class="card-body">
-            <form action="">
+            <form @submit.prevent="savePost()">
                 <div class="form-group">
                     <label for="title">Title;</label>
                     <input type="text" name="title" id="title" class="form-control" v-model="post.title"/>
@@ -45,7 +45,7 @@ export default {
                     <input type="text" name="description" id="description" v-model="post.description"
                            class="form-control"/>
                 </div>
-                <button type="button" class="btn btn-secondary mt-2" @click.prevent="savePost()">Save</button>
+                <input type="submit" class="btn btn-secondary mt-2" value="Save">
             </form>
         </div>
     </div>

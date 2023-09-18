@@ -1,13 +1,30 @@
 <script>
+import axios from "axios"
+
 export default {
     data() {
         return {
             post: {}
         }
     },
+    mounted() {
+        this.getPost()
+    },
     methods: {
-        updatePost() {
-
+        async getPost() {
+            await axios.get(`/api/posts/${this.$route.params.postId}`)
+                .then((response) => {
+                    this.post = response.data
+                })
+        },
+        async updatePost() {
+            await axios.patch(`/api/posts/${this.$route.params.postId}`, this.post)
+                .then(() => {
+                    this.$router.push({name: 'PostsIndex'})
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         }
     }
 }
@@ -24,7 +41,7 @@ export default {
             </div>
         </div>
         <div class="card-body">
-            <form action="">
+            <form @submit.prevent="updatePost()">
                 <div class="form-group">
                     <label for="title">Title;</label>
                     <input type="text" name="title" id="title" class="form-control" v-model="post.title"/>
@@ -34,7 +51,7 @@ export default {
                     <input type="text" name="description" id="description" v-model="post.description"
                            class="form-control"/>
                 </div>
-                <button type="button" class="btn btn-secondary mt-2" @click.prevent="updatePost()">Save</button>
+                <input type="submit" class="btn btn-secondary mt-2" value="Save">
             </form>
         </div>
     </div>

@@ -13,7 +13,12 @@ export default {
         <td>{{ post.title }}</td>
         <td>{{ post.description }}</td>
         <td>
-            Edit
+            <router-link :to="{
+                name: 'EditPost',
+                params: { postId: post.id }
+            }">
+                Edit
+            </router-link>
             <br/>
             Delete
         </td>

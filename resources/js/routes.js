@@ -1,19 +1,21 @@
-import PostIndex from './Pages/Post/Index.vue'
-import PostCreate from './Pages/Post/Create.vue'
+import PostsIndex from './Pages/Post/Index.vue'
+import CreatePost from './Pages/Post/Create.vue'
+import EditPost from './Pages/Post/Edit.vue'
 
 export const routes = [
     {
         path: '/posts',
         name: 'PostsIndex',
-        component: PostIndex,
+        component: PostsIndex,
     },
     {
         path: '/post/create',
-        name: 'PostCreate',
-        component: PostCreate,
+        name: 'CreatePost',
+        component: CreatePost,
     },
     {
-        path: '/post/edit/:post',
-        name: 'EditPost'
+        path: '/post/edit/:postId',
+        name: 'EditPost',
+        component: EditPost,
     }
 ]

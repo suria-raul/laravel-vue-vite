@@ -4,6 +4,9 @@ import {mapActions} from "vuex"
 import {TailwindPagination} from "laravel-vue-pagination"
 
 export default {
+    components: {
+        TailwindPagination
+    },
     mounted() {
         this.getPosts()
     },
@@ -11,10 +14,7 @@ export default {
         ...mapActions([
             'getPosts',
             'deletePost',
-        ]),
-        paginate() {
-            return this.$store.getters.pagination
-        }
+        ])
     },
     computed: {
         posts() {
@@ -61,6 +61,7 @@ export default {
                 </tr>
                 </tbody>
             </table>
+            <TailwindPagination :data="posts" @pagination-change-page="getPosts"/>
         </div>
     </div>
 </template>

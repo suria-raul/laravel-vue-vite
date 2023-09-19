@@ -9,32 +9,24 @@ const toaster = createToaster({
 const store = createStore({
     state() {
         return {
-            posts: Array,
-            pagination: Object
+            posts: Array
         }
     },
     mutations: {
         setPosts(state, data) {
             state.posts = data
-        },
-        setPagination(state, links) {
-            state.pagination = links
         }
     },
     getters: {
         getPosts(state) {
             return state.posts
-        },
-        getPagination(state) {
-            return state.pagination
         }
     },
     actions: {
-        async getPosts({commit}) {
-            await axios.get('/api/posts')
+        async getPosts({commit}, page = 1) {
+            await axios.get(`/api/posts?page=${page}`)
                 .then((response) => {
                     commit('setPosts', response.data.data)
-                    commit('setPagination', response.data.links)
                 })
         },
         async deletePost({dispatch}, id) {

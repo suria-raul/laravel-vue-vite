@@ -21,16 +21,16 @@ export default {
 </script>
 
 <template>
-    <div class="card">
-        <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
+    <div class="">
+        <div class="">
+            <div class="bg-indigo-500 d-flex justify-content-between align-items-center">
                 <h1>Posts</h1>
                 <router-link to="/post/create">
                     Create
                 </router-link>
             </div>
         </div>
-        <div class="card-body">
+        <div class="">
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>

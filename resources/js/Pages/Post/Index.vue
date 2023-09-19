@@ -1,6 +1,7 @@
 <script>
 
-import {mapActions} from "vuex";
+import {mapActions} from "vuex"
+import {TailwindPagination} from "laravel-vue-pagination"
 
 export default {
     mounted() {
@@ -9,8 +10,11 @@ export default {
     methods: {
         ...mapActions([
             'getPosts',
-            'deletePost'
-        ])
+            'deletePost',
+        ]),
+        paginate() {
+            return this.$store.getters.pagination
+        }
     },
     computed: {
         posts() {

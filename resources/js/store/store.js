@@ -10,16 +10,23 @@ const store = createStore({
     state() {
         return {
             posts: Array,
+            pagination: Object
         }
     },
     mutations: {
         setPosts(state, data) {
             state.posts = data
+        },
+        setPagination(state, links) {
+            state.pagination = links
         }
     },
     getters: {
         getPosts(state) {
             return state.posts
+        },
+        getPagination(state) {
+            return state.pagination
         }
     },
     actions: {
@@ -27,6 +34,7 @@ const store = createStore({
             await axios.get('/api/posts')
                 .then((response) => {
                     commit('setPosts', response.data.data)
+                    commit('setPagination', response.data.links)
                 })
         },
         async deletePost({dispatch}, id) {

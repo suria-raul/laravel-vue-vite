@@ -4,7 +4,7 @@ import axios from "axios"
 export default {
     data() {
         return {
-            post: {}
+            post: Object
         }
     },
     methods: {
@@ -13,7 +13,7 @@ export default {
                 .then(() => {
                     this.post = {}
                     // redirect to /posts
-                    this.$router.push('/posts')
+                    this.$router.push({name: 'PostsIndex'})
                 })
                 .catch((error) => {
                     console.log(error)

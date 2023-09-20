@@ -21,7 +21,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response('Just An Error', 500);
     }
 
     /**

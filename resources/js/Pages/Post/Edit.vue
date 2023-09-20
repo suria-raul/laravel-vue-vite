@@ -1,30 +1,20 @@
 <script>
 import axios from "axios"
+import {mapActions} from "vuex";
 
 export default {
-    data() {
-        return {
-            post: {}
-        }
-    },
     mounted() {
         this.getPost()
     },
     methods: {
-        async getPost() {
-            await axios.get(`/api/posts/${this.$route.params.postId}`)
-                .then((response) => {
-                    this.post = response.data.data
-                })
-        },
-        async updatePost() {
-            await axios.patch(`/api/posts/${this.$route.params.postId}`, this.post)
-                .then(() => {
-                    this.$router.push({name: 'PostsIndex'})
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
+        ...mapActions([
+            'getPost',
+            'updatePost'
+        ])
+    },
+    computed: {
+        post() {
+            return this.$store.getters.getPost
         }
     }
 }

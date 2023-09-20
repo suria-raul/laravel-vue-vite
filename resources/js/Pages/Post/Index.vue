@@ -2,31 +2,20 @@
 
 import {mapActions} from "vuex"
 import {TailwindPagination} from "laravel-vue-pagination"
-import axios from "axios";
 
 export default {
     components: {
         TailwindPagination
     },
-    data() {
-        return {
-            postsz: {}
-        }
-    },
     mounted() {
         this.getPosts()
-        this.getPostsz()
     },
     methods: {
         ...mapActions([
-            'getPosts',
             'deletePost',
         ]),
-        async getPostsz(page = 1) {
-            await axios.get(`/api/posts?page=${page}`)
-                .then((response) => {
-                    this.postsz = response.data
-                })
+        getPosts(page = 1) {
+            this.$store.dispatch('getPosts', page)
         }
     },
     computed: {
@@ -58,7 +47,7 @@ export default {
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(post, key) in postsz.data" :key="key">
+                <tr v-for="(post, key) in posts.data" :key="key">
                     <td>{{ key += 1 }}</td>
                     <td>{{ post.title }}</td>
                     <td>{{ post.description }}</td>
@@ -74,7 +63,7 @@ export default {
                 </tr>
                 </tbody>
             </table>
-            <TailwindPagination :data="postsz" @pagination-change-page="getPostsz"/>
+            <TailwindPagination :data="posts" @pagination-change-page="getPosts"/>
         </div>
     </div>
 </template>

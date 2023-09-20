@@ -12,9 +12,11 @@ export default {
     },
     methods: {
         ...mapActions([
-            'getPosts',
             'deletePost',
-        ])
+        ]),
+        getPosts(page = 1) {
+            this.$store.dispatch('getPosts', page)
+        }
     },
     computed: {
         posts() {
@@ -45,7 +47,7 @@ export default {
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(post, key) in posts" :key="key">
+                <tr v-for="(post, key) in posts.data" :key="key">
                     <td>{{ key += 1 }}</td>
                     <td>{{ post.title }}</td>
                     <td>{{ post.description }}</td>

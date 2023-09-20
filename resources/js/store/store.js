@@ -9,7 +9,7 @@ const toaster = createToaster({
 const store = createStore({
     state() {
         return {
-            posts: Array
+            posts: Object
         }
     },
     mutations: {
@@ -23,10 +23,10 @@ const store = createStore({
         }
     },
     actions: {
-        async getPosts({commit}, page = 1) {
+        async getPosts({commit, state}, page) {
             await axios.get(`/api/posts?page=${page}`)
                 .then((response) => {
-                    commit('setPosts', response.data.data)
+                    commit('setPosts', response.data)
                 })
         },
         async deletePost({dispatch}, id) {

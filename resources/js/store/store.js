@@ -9,24 +9,17 @@ const toaster = createToaster({
 const store = createStore({
     state() {
         return {
-            posts: Object,
-            post: Object
+            posts: Object
         }
     },
     mutations: {
         setPosts(state, data) {
             state.posts = data
-        },
-        setPost(state, data) {
-            state.post = data
         }
     },
     getters: {
         getPosts(state) {
             return state.posts
-        },
-        getPost(state) {
-            return state.post
         }
     },
     actions: {
@@ -45,22 +38,6 @@ const store = createStore({
                 })
                 .catch((error) => {
                     toaster.error(error.message)
-                })
-        },
-        async getPost({state}) {
-            console.log(this.$route)
-            // await axios.get(`/api/posts/${this.$route.params.postId}`)
-            //     .then((response) => {
-            //         state.post = response.data.data
-            //     })
-        },
-        async updatePost({state}) {
-            await axios.patch(`/api/posts/${this.$route.params.postId}`, state.getPost)
-                .then(() => {
-                    this.$router.push({name: 'PostsIndex'})
-                })
-                .catch((error) => {
-                    console.log(error)
                 })
         }
     },

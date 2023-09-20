@@ -3,18 +3,29 @@ import axios from "axios"
 import {mapActions} from "vuex";
 
 export default {
+    data() {
+        return {
+            post: Object,
+        }
+    },
     mounted() {
         this.getPost()
     },
     methods: {
-        ...mapActions([
-            'getPost',
-            'updatePost'
-        ])
-    },
-    computed: {
-        post() {
-            return this.$store.getters.getPost
+        async getPost() {
+            await axios.get(`/api/posts/${this.$route.params.postId}`)
+                .then((response) => {
+                    this.post = response.data.data
+                })
+        },
+        async updatePost() {
+            await axios.patch(`/api/posts/${this.$route.params.postId}`, this.post)
+                .then(() => {
+                    this.$router.push({name: 'PostsIndex'})
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         }
     }
 }
@@ -33,7 +44,7 @@ export default {
         <div class="card-body">
             <form @submit.prevent="updatePost()">
                 <div class="form-group">
-                    <label for="title">Title;</label>
+                    <label for="title">Title</label>
                     <input type="text" name="title" id="title" class="form-control" v-model="post.title"/>
                 </div>
                 <div class="form-group">

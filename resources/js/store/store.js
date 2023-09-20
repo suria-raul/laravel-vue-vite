@@ -23,8 +23,8 @@ const store = createStore({
         }
     },
     actions: {
-        async getPosts({commit}, page = 1) {
-            await axios.get(`/api/posts?page=${page}`)
+        async getPosts({commit}) {
+            await axios.get('/api/posts')
                 .then((response) => {
                     commit('setPosts', response.data.data)
                 })

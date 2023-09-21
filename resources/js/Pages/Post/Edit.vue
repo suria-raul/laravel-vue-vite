@@ -21,8 +21,9 @@ export default {
         },
         async updatePost() {
             await axios.patch(`/api/posts/${this.$route.params.postId}`, this.post)
-                .then(() => {
-                    this.$router.push({name: 'PostsIndex'})
+                .then((response) => {
+                    this.$toast.success(response.data)
+                    this.$router.push({name: 'posts'})
                 })
                 .catch((error) => {
                     console.log(error)

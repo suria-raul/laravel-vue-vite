@@ -15,7 +15,7 @@ export default {
                 .then((response) => {
                     this.comment = {}
                     this.$toast.success(response.data)
-                    this.$router.push({name: 'CommentsIndex'})
+                    this.$router.push({name: 'comments-index'})
                 })
                 .catch((error) => {
                     console.log(error.response.data)

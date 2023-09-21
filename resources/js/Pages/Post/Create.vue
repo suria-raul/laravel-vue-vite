@@ -13,7 +13,7 @@ export default {
                 .then(() => {
                     this.post = {}
                     // redirect to /posts
-                    this.$router.push({name: 'PostsIndex'})
+                    this.$router.push({name: 'posts'})
                 })
                 .catch((error) => {
                     console.log(error)

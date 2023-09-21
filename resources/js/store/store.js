@@ -18,11 +18,11 @@ const store = createStore({
         }
     },
     mutations: {
-        setPosts(state, data) {
-            state.posts = data
+        setPosts(state, posts) {
+            state.posts = posts
         },
-        setComments(state, data) {
-            state.comments = data
+        setComments(state, comments) {
+            state.comments = comments
         }
     },
     getters: {

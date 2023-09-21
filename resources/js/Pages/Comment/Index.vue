@@ -1,21 +1,18 @@
 <script>
-import axios from "axios"
+import {mapActions} from "vuex"
 
 export default {
-    data() {
-        return {
-            comments: Object,
-        }
-    },
     mounted() {
         this.getComments()
     },
     methods: {
-        async getComments(page = 1) {
-            await axios.get(`/api/comments?page=${page}`)
-                .then((response) => {
-                    this.comments = response.data
-                })
+        ...mapActions([
+            'getComments'
+        ])
+    },
+    computed: {
+        comments() {
+            return this.$store.getters.getComments
         }
     }
 }

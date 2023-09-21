@@ -4,7 +4,9 @@ import axios from "axios"
 export default {
     data() {
         return {
-            comment: Object
+            comment: {
+                type: Object
+            }
         }
     },
     methods: {
@@ -16,7 +18,8 @@ export default {
                     this.$router.push({name: 'CommentsIndex'})
                 })
                 .catch((error) => {
-                    this.$toast.error(error.message)
+                    console.log(error.response.data)
+                    this.$toast.error(error.response.data.message)
                 })
         }
     }
@@ -25,7 +28,7 @@ export default {
 
 <template>
     <div>
-        <form @submit.prevent="saveComment">
+        <form @submit.prevent="saveComment()">
             <input type="text" name="comment" v-model="comment.comment">
             <input type="submit" value="Submit">
         </form>

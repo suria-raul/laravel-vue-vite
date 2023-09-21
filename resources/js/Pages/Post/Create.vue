@@ -4,7 +4,7 @@ import axios from "axios"
 export default {
     data() {
         return {
-            post: Object
+            post: {}
         }
     },
     methods: {
@@ -37,11 +37,11 @@ export default {
         <div class="card-body">
             <form @submit.prevent="savePost()">
                 <div class="form-group">
-                    <label for="title">Title;</label>
+                    <label for="title">Title</label>
                     <input type="text" name="title" id="title" class="form-control" v-model="post.title"/>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description;</label>
+                    <label for="description">Description</label>
                     <input type="text" name="description" id="description" v-model="post.description"
                            class="form-control"/>
                 </div>

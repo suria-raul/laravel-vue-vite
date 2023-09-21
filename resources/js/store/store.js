@@ -9,21 +9,32 @@ const toaster = createToaster({
 const store = createStore({
     state() {
         return {
-            posts: Object
+            posts: {
+                type: Object
+            },
+            comments: {
+                type: Object
+            }
         }
     },
     mutations: {
         setPosts(state, data) {
             state.posts = data
+        },
+        setComments(state, data) {
+            state.comments = data
         }
     },
     getters: {
         getPosts(state) {
             return state.posts
+        },
+        getComments(state) {
+            return state.comments
         }
     },
     actions: {
-        async getPosts({commit}, page) {
+        async getPosts({commit}, page = 1) {
             await axios.get(`/api/posts?page=${page}`)
                 .then((response) => {
                     commit('setPosts', response.data)
@@ -38,6 +49,12 @@ const store = createStore({
                 })
                 .catch((error) => {
                     toaster.error(error.message)
+                })
+        },
+        async getComments({commit}, page = 1) {
+            await axios.get(`/api/comments?page=${page}`)
+                .then((response) => {
+                    commit('setComments', response.data)
                 })
         }
     },

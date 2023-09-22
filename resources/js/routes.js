@@ -1,4 +1,5 @@
-import PageNotFound from "./Pages/Errors/PageNotFound.vue"
+import PageNotFound from './Pages/Errors/PageNotFound.vue'
+import Login from './Pages/Authentication/Login.vue'
 import PostsIndex from './Pages/Post/Index.vue'
 import CreatePost from './Pages/Post/Create.vue'
 import EditPost from './Pages/Post/Edit.vue'
@@ -30,6 +31,11 @@ export const routes = [
         path: '/comment/create',
         name: 'create-comment',
         component: CreateComment
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
     },
     {
         path: '/:pathMatch(.*)*',

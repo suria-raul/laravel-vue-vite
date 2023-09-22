@@ -44,7 +44,7 @@ class PostController extends Controller
     {
         $post->update($updatePostRequest->validated());
 
-        return response('Post Updated!', 202);
+        return response('Post Updated!', 204);
     }
 
     /**
@@ -54,6 +54,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return response('Post deleted!', 202);
+        return response('Post deleted!', 204);
     }
 }

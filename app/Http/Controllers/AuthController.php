@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -16,9 +17,9 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'Login Successful.',
                 'token' => $token
-            ], 200);
+            ], Response::HTTP_OK);
         }
 
-        return response('Login Failed.', 401);
+        return response('Login Failed.', Response::HTTP_UNAUTHORIZED);
     }
 }

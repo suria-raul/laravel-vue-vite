@@ -7,6 +7,7 @@ use App\Http\Resources\CommentCollection;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CommentController extends Controller
 {
@@ -25,7 +26,7 @@ class CommentController extends Controller
     {
         Comment::create($storeCommentRequest->validated());
 
-        return response('Comment Created!', 201);
+        return response('Comment Created!', Response::HTTP_CREATED);
     }
 
     /**

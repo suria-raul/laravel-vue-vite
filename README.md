@@ -5,3 +5,10 @@ https://blog.logrocket.com/create-single-page-app-laravel-and-vue/
 https://www.youtube.com/watch?v=jIzPuM76-nI&list=PLlameCF3cMEs7ErSWENv03zOKtH5NTG61  
 https://www.youtube.com/watch?v=6h-g0LqjWZM - Watch how povillas korop handled errors in vue  
 https://stackoverflow.com/questions/45384172/best-practice-for-storing-auth-tokens-in-vuejs - vuejs bestpractice
+
+
+
+
+
+Date Range Solution resource:  
+https://code-boxx.com/date-range-php/

@@ -1,11 +1,14 @@
 -- possible solution
 
 
-SELECT DATE(date_column) AS day, SUM(amount_column) AS total_amount
-FROM your_table_name
-GROUP BY DAY(date_column)
-ORDER BY DAY(date_column);
+SELECT DATE(trans_date) AS day, SUM(amt) AS balance
+FROM `user_transactions`
+WHERE trans_type_id = 386
+GROUP BY DAY(trans_date)
+ORDER BY DAY(trans_date)
+DESC;
 
+SELECT SUM(amt) from `user_transactions` WHERE trans_type_id = 386;
 
 -- use Illuminate\Support\Facades\DB;
 --

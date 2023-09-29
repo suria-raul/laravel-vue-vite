@@ -25,3 +25,4 @@ Route::apiResource('posts', PostController::class);
 Route::apiResource('comments', CommentController::class);
 
 Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);

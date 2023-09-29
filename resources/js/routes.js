@@ -1,5 +1,6 @@
 import PageNotFound from './Pages/Errors/PageNotFound.vue'
 import Login from './Pages/Authentication/Login.vue'
+import Register from "./Pages/Authentication/Register.vue"
 import PostsIndex from './Pages/Post/Index.vue'
 import CreatePost from './Pages/Post/Create.vue'
 import EditPost from './Pages/Post/Edit.vue'
@@ -36,6 +37,11 @@ export const routes = [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register
     },
     {
         path: '/:pathMatch(.*)*',

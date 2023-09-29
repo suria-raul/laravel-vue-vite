@@ -15,13 +15,7 @@ export default {
     },
     methods: {
         async register() {
-            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-
-            await axios.post('/api/register', this.form, {
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken,
-                }
-            })
+            await axios.post('/api/register', this.form)
                 .then((response) => {
                     console.log(response.data)
                 })

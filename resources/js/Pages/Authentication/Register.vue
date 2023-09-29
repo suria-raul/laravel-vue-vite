@@ -18,9 +18,12 @@ export default {
             await axios.post('/api/register', this.form)
                 .then((response) => {
                     console.log(response.data)
+                    this.$toast.success(response.data)
+                    this.$router.push({name: 'login'})
                 })
                 .catch((error) => {
                     console.log(error)
+                    this.$toast.error(error.data.response.data)
                 })
         }
     }

@@ -26,4 +26,4 @@ Route::get('testing', function () {
 
 Route::get('/{any}', function () {
     return view('app');
-})->where('any', '.*')->name('application');
+})->where('any', '.*');

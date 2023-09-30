@@ -10,32 +10,32 @@ import CreateComment from './Pages/Comment/Create.vue'
 export const routes = [
     {
         path: '/posts',
-        name: 'posts',
+        name: 'PostsIndex',
         component: PostsIndex,
     },
     {
         path: '/post/create',
-        name: 'create-post',
+        name: 'CreatePost',
         component: CreatePost,
     },
     {
         path: '/post/edit/:postId',
-        name: 'edit-post',
+        name: 'EditPost',
         component: EditPost,
     },
     {
         path: '/comments',
-        name: 'comments',
+        name: 'CommentsIndex',
         component: CommentsIndex,
     },
     {
         path: '/comment/create',
-        name: 'create-comment',
+        name: 'CreateComment',
         component: CreateComment
     },
     {
         path: '/login',
-        name: 'login',
+        name: 'Login',
         component: Login
     },
     {
@@ -45,7 +45,7 @@ export const routes = [
     },
     {
         path: '/:pathMatch(.*)*',
-        name: 'not-found',
+        name: 'PageNotFound',
         component: PageNotFound
     }
 ]

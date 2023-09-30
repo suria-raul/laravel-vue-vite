@@ -15,10 +15,10 @@ export default {
                 .then((response) => {
                     this.comment = {}
                     this.$toast.success(response.data)
-                    this.$router.push({name: 'comments-index'})
+                    this.$router.push({name: 'CommentsIndex'})
                 })
                 .catch((error) => {
-                    console.log(error.response.data)
+                    console.log(error)
                     this.$toast.error(error.response.data.message)
                 })
         }
@@ -28,7 +28,7 @@ export default {
 
 <template>
     <div>
-        <form @submit.prevent="saveComment()">
+        <form @submit.prevent="saveComment">
             <input type="text" name="comment" v-model="comment.comment">
             <input type="submit" value="Submit">
         </form>

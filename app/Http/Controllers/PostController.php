@@ -54,6 +54,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return response('Post deleted!', Response::HTTP_NO_CONTENT);
+        return response('Post deleted!', Response::HTTP_ACCEPTED);
     }
 }

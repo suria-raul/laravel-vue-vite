@@ -50,7 +50,7 @@ export default {
                     <td>{{ post.title }}</td>
                     <td>{{ post.description }}</td>
                     <td>
-                        <router-link :to="{ name: 'edit-post', params: { postId: post.id } }">
+                        <router-link :to="{ name: 'EditPost', params: { postId: post.id } }">
                             Edit
                         </router-link>
                         <br/>

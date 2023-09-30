@@ -44,7 +44,7 @@ class PostController extends Controller
     {
         $post->update($updatePostRequest->validated());
 
-        return response('Post Updated!', Response::HTTP_NO_CONTENT);
+        return response('Post Updated!', Response::HTTP_OK);
     }
 
     /**

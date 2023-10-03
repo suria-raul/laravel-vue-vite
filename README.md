@@ -6,6 +6,7 @@ https://www.youtube.com/watch?v=jIzPuM76-nI&list=PLlameCF3cMEs7ErSWENv03zOKtH5NT
 https://www.youtube.com/watch?v=6h-g0LqjWZM - Watch how povillas korop handled errors in vue  
 https://stackoverflow.com/questions/45384172/best-practice-for-storing-auth-tokens-in-vuejs - vuejs bestpractice
 
+https://github.com/scalablescripts/auth-backend/blob/main/app/Http/Middleware/Authenticate.php
 
 
 

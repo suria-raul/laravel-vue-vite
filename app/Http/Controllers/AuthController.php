@@ -12,18 +12,20 @@ class AuthController extends Controller
 {
     public function login(LoginRequest $request)
     {
-        if (Auth::attempt($request->validated())) {
-            $request->session()->regenerate();
-
-            $token = auth()->createToken('API_TOKEN')->plainTextToken;
-
-            return response()->json([
-                'message' => 'Login Successful.',
-                'token' => $token
-            ], Response::HTTP_OK);
+        if (!Auth::attempt($request->validated())) {
+            return response('Login Failed.', Response::HTTP_UNAUTHORIZED);
         }
 
-        return response('Login Failed.', Response::HTTP_UNAUTHORIZED);
+        $user = Auth::user();
+
+        $token = $user->createToken('token')->plainTextToken;
+
+        $cookie = cookie('api_token', $token, 60 * 24);
+
+        return response(
+            'Login Successful.',
+            Response::HTTP_OK
+        )->withCookie($cookie);
     }
 
     public function register(RegistrationRequest $request)

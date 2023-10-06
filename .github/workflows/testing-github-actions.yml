@@ -8,6 +8,6 @@ jobs:
       - run: echo "This action will run on push event!"
       - run: php --version
       - run: echo "We just run php --version command to show php version"
-      - run: ${{ github.actor }} ${{ github.event_name }} ${{ runner.os }} ${{ github.ref }} ${{ github.repository }} ${{ github.workspace }} ${{ job.status }}
+      - run: echo ${{ github.actor }} ${{ github.event_name }} ${{ runner.os }} ${{ github.ref }} ${{ github.repository }} ${{ github.workspace }} ${{ job.status }}
       - run: echo "We just echoed github variables"
       - run: echo "End of Job"

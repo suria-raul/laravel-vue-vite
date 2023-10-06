@@ -10,4 +10,5 @@ jobs:
       - run: echo "We just run php --version command to show php version"
       - run: echo "${{ runner.os }}"
       - run: echo "We just echoed runner.os"
+      - run: echo "${{ github.actor }}"
       - run: echo "End of Job"

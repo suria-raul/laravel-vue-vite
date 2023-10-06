@@ -12,4 +12,5 @@ jobs:
       - run: echo "We just echoed github variables"
       - run: npm --version
       - run: node --version
+      - run: composer --version
       - run: echo "End of Job"

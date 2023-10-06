@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('testing', function () {
+    $start = new DateTime("2020-01-01");
+    $end = new DateTime("2020-02-02");
+    $interval = new DateInterval("P1D");
+    $range = new DatePeriod($start, $interval, $end);
+    $dates = [];
+    foreach ($range as $d) { $dates[] = $d->format("Y-m-d"); }
+    dd($dates);
+});
+
+
 Route::get('/{any}', function () {
     return view('app');
-})->where('any', '.*')->name('application');
+})->where('any', '.*');

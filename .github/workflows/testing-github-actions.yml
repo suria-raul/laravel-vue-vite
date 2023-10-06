@@ -1,0 +1,16 @@
+name: Name of the Github Action
+run-name: The run name (not sure what this is)
+on: [push]
+jobs:
+  The-Name-Of-The-Job-Here:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This action will run on push event!"
+      - run: php --version
+      - run: echo "We just run php --version command to show php version"
+      - run: echo ${{ github.actor }} ${{ github.event_name }} ${{ runner.os }} ${{ github.ref }} ${{ github.repository }} ${{ github.workspace }} ${{ job.status }}
+      - run: echo "We just echoed github variables"
+      - run: npm --version
+      - run: node --version
+      - run: composer --version
+      - run: echo "End of Job"

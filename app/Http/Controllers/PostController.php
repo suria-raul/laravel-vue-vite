@@ -7,7 +7,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
@@ -26,7 +26,7 @@ class PostController extends Controller
     {
         Post::create($postRequest->validated());
 
-        return response('Post Created!', 201);
+        return response('Post Created!', Response::HTTP_CREATED);
     }
 
     /**
@@ -44,7 +44,7 @@ class PostController extends Controller
     {
         $post->update($updatePostRequest->validated());
 
-        return response('Post Updated!', 202);
+        return response('Post Updated!', Response::HTTP_OK);
     }
 
     /**
@@ -54,6 +54,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return response('Post deleted!', 202);
+        return response('Post deleted!', Response::HTTP_ACCEPTED);
     }
 }

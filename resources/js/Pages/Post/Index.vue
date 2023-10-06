@@ -13,10 +13,8 @@ export default {
     methods: {
         ...mapActions([
             'deletePost',
-        ]),
-        getPosts(page = 1) {
-            this.$store.dispatch('getPosts', page)
-        }
+            'getPosts',
+        ])
     },
     computed: {
         posts() {

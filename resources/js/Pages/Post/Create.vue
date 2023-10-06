@@ -10,14 +10,14 @@ export default {
     methods: {
         async savePost() {
             await axios.post('/api/posts', this.post)
-                .then(() => {
+                .then((response) => {
                     this.post = {}
                     // redirect to /posts
-                    this.$router.push('/posts')
+                    this.$router.push({name: 'PostsIndex'})
+                    this.$toast.success(response.data)
                 })
                 .catch((error) => {
                     console.log(error)
-                    alert(error)
                 })
         }
     }
@@ -35,13 +35,13 @@ export default {
             </div>
         </div>
         <div class="card-body">
-            <form @submit.prevent="savePost()">
+            <form @submit.prevent="savePost">
                 <div class="form-group">
-                    <label for="title">Title;</label>
+                    <label for="title">Title</label>
                     <input type="text" name="title" id="title" class="form-control" v-model="post.title"/>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description;</label>
+                    <label for="description">Description</label>
                     <input type="text" name="description" id="description" v-model="post.description"
                            class="form-control"/>
                 </div>

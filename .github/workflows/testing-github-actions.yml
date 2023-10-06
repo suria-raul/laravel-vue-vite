@@ -8,9 +8,8 @@ jobs:
       - run: echo "This action will run on push event!"
       - run: php --version
       - run: echo "We just run php --version command to show php version"
-      - run: echo "${{ runner.os }} ${{ github.actor }}"
-      - run: echo "We just echoed runner.os and github.actor to test the && sign will work"
-      - run: echo "${{ github.event_name }}"
+      - run: echo "${{ runner.os }} ${{ github.actor }} ${{ github.event_name }}"
+      - run: echo "We just echoed runner.os, github.actor and github.event_name"
       - run: echo "We just echoed github.event_name"
       - run: echo "${{ github.ref }}"
       - run: echo "We just echoed github.ref"

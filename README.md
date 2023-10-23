@@ -7,7 +7,8 @@ https://www.youtube.com/watch?v=6h-g0LqjWZM - Watch how povillas korop handled e
 https://stackoverflow.com/questions/45384172/best-practice-for-storing-auth-tokens-in-vuejs - vuejs bestpractice
 https://dev.to/brngranado/how-to-create-an-app-using-laravel-with-inertiajs-and-react-2022-1knd - laravel Inertia React  
 https://github.com/scalablescripts/auth-backend/blob/main/app/Http/Middleware/Authenticate.php
-https://laravel.io/articles/setting-up-laravel-with-inertiajs-vuejs-tailwind-css
+https://laravel.io/articles/setting-up-laravel-with-inertiajs-vuejs-tailwind-css  
+https://www.tutsmake.com/laravel-9-vue-js-crud-example-tutorial/
 
 
 
